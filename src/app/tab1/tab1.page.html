@@ -1,17 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+  <ion-title>
+  Cadastro de pessoa
+  </ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+  <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  <ion-toolbar>
+  <ion-title size="large">Cadastro de Pessoa</ion-title>
+  </ion-toolbar>
+  </ion-header>
+  <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+  <ion-item>
+  <ion-input label="Nome" label-placement="floating" fill="solid"
+  placeholder="Entre um nome"
+  errorText="Nome é obrigatório"
+  formControlName="nome"></ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-input label="Telefone" label-placement="floating" fill="solid"
+  placeholder="Entre um telefone" formControlName="telefone"></ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-input label="Email" label-placement="floating" fill="solid"
+  errorText="Entre com um email válido"
+  placeholder="Entre um email" formControlName="email"></ion-input>
+  </ion-item>
+  <ion-row>
+  <ion-col>
+  <ion-button type="submit" expand="block"
+  [disabled]="!formGroup.valid">
+  Salvar
+  </ion-button>
+  </ion-col>
+  </ion-row>
+  </form>
+  </ion-content>
+  
