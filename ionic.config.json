@@ -1,0 +1,7 @@
+{
+  "name": "projeto-gps",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
