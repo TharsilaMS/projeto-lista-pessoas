@@ -3,7 +3,6 @@ import { IonicModule , AlertController } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from'@angular/forms';
 import { DatabaseService } from '../services/DatabaseService';
-
 @Component({
 selector: 'app-tab1',
 templateUrl: 'tab1.page.html',
