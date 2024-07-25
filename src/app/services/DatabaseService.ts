@@ -21,4 +21,22 @@ this._storage = storage;
 public set(key: string, value: any) {
 this._storage?.set(key, value);
 }
+async get<T>(key: string): Promise<T | null> {
+    const dataObject = await this._storage?.get(key)
+    if (dataObject) {
+    try {
+    const data: T = dataObject
+    return data
+    } catch (error) {
+    return new Promise((resolve, reject) => {
+    reject(error)
+    })
+    }
+    } else {
+    return new Promise((resolve, reject) => {
+    resolve(null)
+    })
+    }
+    }
+    
 }
