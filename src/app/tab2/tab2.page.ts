@@ -33,6 +33,11 @@ listar() {
     console.error(error);
   });
 }
-
+async deletar(pessoa: Pessoa) {
+  const deletado = await this.pessoaService.delete(pessoa.email)
+  if(deletado) {
+  this.listar()
+  }
+  }
 }
 

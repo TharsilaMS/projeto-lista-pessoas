@@ -4,7 +4,9 @@ import { Pessoa } from '../model/Pessoa';
 const PESSOAS_KEY = "pessoas"
 @Injectable({providedIn: 'root'})
 export class PessoaService {
+
 constructor(private databaseService: DatabaseService) { }
+
 async criar(pessoa: Pessoa) {
 const pessoas = await this.listar()
 if(pessoas) {
@@ -27,4 +29,33 @@ async editar(pessoa: Pessoa, email: string) {
     }
     }
     }
+    async get(email: string): Promise<Pessoa | null> {
+        const pessoas = await this.listar()
+        if(pessoas) {
+        const index = pessoas.findIndex(pessoa => pessoa.email === email)
+        if(index >= 0) {
+        return pessoas[index]
+        }
+        return null
+        }else {
+        return null
+        }
+        }
+        async delete(email: string): Promise<boolean> {
+            const pessoas = await this.listar()
+            if(pessoas) {
+            const index = pessoas.findIndex(pessoa => pessoa.email === email)
+            if(index >= 0) {
+            pessoas.splice(index, 1);
+            this.databaseService.set(PESSOAS_KEY, pessoas)
+            return true
+            } else {
+            return false
+            }
+            }else {
+            return false
+            }
+            }
+            
+          
 }
