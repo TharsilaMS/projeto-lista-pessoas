@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'projeto-gps',
+  appName: 'projeto-lista-pessoas',
   webDir: 'www'
 };
 
