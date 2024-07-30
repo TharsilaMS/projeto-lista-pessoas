@@ -5,7 +5,7 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
+<ion-content [fullscreen]="true" class="ion-padding">
   <form [formGroup]="formGroup" (ngSubmit)="salvar()">
     <ion-item>
       <ion-input label="Nome" label-placement="floating" fill="solid" placeholder="Entre um nome"
